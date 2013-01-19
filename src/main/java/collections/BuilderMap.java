@@ -57,12 +57,12 @@ public class BuilderMap<K, V> implements Map<K, V> {
 
         if (null == builder) {
 
-            throw new IllegalArgumentException(getClass().getName() + "(Map,Builder) builder must not be null.");
+            throw new IllegalArgumentException(getClass().getName() + "(Builder, Map) builder must not be null.");
         }
 
         if (null == map) {
 
-            throw new IllegalArgumentException(getClass().getName() + "(Map,Builder) map must not be null.");
+            throw new IllegalArgumentException(getClass().getName() + "(Builder, Map) map must not be null.");
         }
 
         this.map = map;
