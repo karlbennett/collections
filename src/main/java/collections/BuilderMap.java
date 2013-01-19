@@ -31,7 +31,7 @@ import java.util.Set;
  *
  *          public Entry<Integer, String> buildEntry() {
  * <p/>
- *          if (numbers.hasNext()) return new SimpleEntry<Integer, String>(++i, numbers.next());
+ *              if (numbers.hasNext()) return new SimpleEntry<Integer, String>(++i, numbers.next());
  * <p/>
  *              return null;
  *          }
