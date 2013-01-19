@@ -3,8 +3,8 @@ Collections
 
 This project contains utility classes that can help build and manipulate Java collections.
 
-### Class Spotlight
-[`BuilderMap`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/BuilderMap.java "BuilderMap")
+### [`BuilderMap`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/BuilderMap.java "BuilderMap")
+
     Map<Integer, String> map = new HashMap<>();
     map.put(4, "four");
     map.put(5, "five");
