@@ -2,9 +2,7 @@ package collections;
 
 import org.junit.Test;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Map.Entry;
 import static java.util.AbstractMap.SimpleEntry;
@@ -62,14 +60,14 @@ public class BuilderMapTest {
     public void testEmptyBuilderMap() throws Exception {
 
         Map map = mock(Map.class);
-        Map builderMap = new BuilderMap(map, new EntryBuilder() {
+        Map builderMap = new BuilderMap(new EntryBuilder() {
 
             @Override
             public Entry buildEntry() {
 
                 return null;
             }
-        });
+        }, map);
 
         verifyZeroInteractions(map);
 
@@ -87,7 +85,7 @@ public class BuilderMapTest {
         Map<Integer, String> resultMap = new HashMap<>(MAP);
         resultMap.putAll(map);
 
-        Map<Integer, String> builderMap = new BuilderMap<>(map, new EntryBuilder<Integer, String>() {
+        Map<Integer, String> builderMap = new BuilderMap<>(new EntryBuilder<Integer, String>() {
 
             private int i = 0;
 
@@ -104,7 +102,7 @@ public class BuilderMapTest {
 
                 return null;
             }
-        });
+        }, map);
 
         assertEquals("backing map should have been mutated.", 6, map.size());
         assertEquals("backing map should contain the correct new values.", resultMap, map);
@@ -120,14 +118,14 @@ public class BuilderMapTest {
     @Test(expected = IllegalArgumentException.class)
     public void testBuilderMapWithNullMap() throws Exception {
 
-        new BuilderMap(null, new EntryBuilder() {
+        new BuilderMap(new EntryBuilder() {
 
             @Override
             public Entry buildEntry() {
 
                 return null;
             }
-        });
+        }, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
