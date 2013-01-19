@@ -6,7 +6,6 @@ import java.util.*;
 
 import static java.util.Map.Entry;
 import static java.util.AbstractMap.SimpleEntry;
-import static collections.BuilderMap.EntryBuilder;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -34,12 +33,12 @@ public class BuilderMapTest {
     @Test
     public void testBuilderMap() throws Exception {
 
-        Map<Integer, String> builderMap = new BuilderMap<>(new EntryBuilder<Integer, String>() {
+        Map<Integer, String> builderMap = new BuilderMap<>(new Builder<Entry<Integer, String>>() {
 
             private int i = 0;
 
             @Override
-            public Entry<Integer, String> buildEntry() {
+            public Entry<Integer, String> build() {
 
                 i++;
 
@@ -60,10 +59,10 @@ public class BuilderMapTest {
     public void testEmptyBuilderMap() throws Exception {
 
         Map map = mock(Map.class);
-        Map builderMap = new BuilderMap(new EntryBuilder() {
+        Map builderMap = new BuilderMap(new Builder() {
 
             @Override
-            public Entry buildEntry() {
+            public Object build() {
 
                 return null;
             }
@@ -85,12 +84,12 @@ public class BuilderMapTest {
         Map<Integer, String> resultMap = new HashMap<>(MAP);
         resultMap.putAll(map);
 
-        Map<Integer, String> builderMap = new BuilderMap<>(new EntryBuilder<Integer, String>() {
+        Map<Integer, String> builderMap = new BuilderMap<>(new Builder<Entry<Integer, String>>() {
 
             private int i = 0;
 
             @Override
-            public Entry<Integer, String> buildEntry() {
+            public Entry<Integer, String> build() {
 
                 i++;
 
@@ -118,10 +117,10 @@ public class BuilderMapTest {
     @Test(expected = IllegalArgumentException.class)
     public void testBuilderMapWithNullMap() throws Exception {
 
-        new BuilderMap(new EntryBuilder() {
+        new BuilderMap(new Builder() {
 
             @Override
-            public Entry buildEntry() {
+            public Object build() {
 
                 return null;
             }

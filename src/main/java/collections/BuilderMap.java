@@ -9,10 +9,10 @@ import java.util.Set;
  * This {@code BuilderMap} can be used to quickly construct a map from another collection or as a base class to simplify
  * building a map that self populate from a custom type.
  * <p/>
- * It is constructed with an {@link EntryBuilder} and an optional backing {@link Map}.
+ * It is constructed with an {@link Builder} and an optional backing {@link Map}.
  * <p/>
- * The {@link EntryBuilder#buildEntry()} method must be implemented to provide the logic that will be used to build the
- * map. The {@link EntryBuilder#buildEntry()} method will be repeatedly called until it returns {@code null}.
+ * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build the map. The
+ * {@link Builder#build()} method will be repeatedly called until it returns {@code null}.
  * <p/>
  * The backing map is the actual collection that will hold the built keys and values.
  * <p/>
@@ -43,59 +43,42 @@ import java.util.Set;
  */
 public class BuilderMap<K, V> implements Map<K, V> {
 
-    /**
-     * Interface that provides a method for building map entries.
-     *
-     * @param <K> the generic type of the entries keys.
-     * @param <V> the generic type of the entries values.
-     */
-    protected static interface EntryBuilder<K, V> {
-
-        /**
-         * Build a map entry.
-         *
-         * @return the built entry.
-         */
-        public Entry<K, V> buildEntry();
-    }
-
-
     private final Map<K, V> map;
 
 
     /**
-     * Instantiate a new {@code BuilderMap} that will use the supplied {@link EntryBuilder} to build it's entries and
-     * the supplied backing {@link Map} to hold it's keys and values.
+     * Instantiate a new {@code BuilderMap} that will use the supplied {@link Builder} to build it's entries and the
+     * supplied backing {@link Map} to hold it's keys and values.
      *
-     * @param entryBuilder the builder used to build the entries for the new map.
-     * @param map          the map that will be used to hold the built keys and value.
+     * @param builder the builder used to build the entries for the new map.
+     * @param map     the map that will be used to hold the built keys and value.
      */
-    public BuilderMap(EntryBuilder<K, V> entryBuilder, Map<K, V> map) {
+    public BuilderMap(Builder<Entry<K, V>> builder, Map<K, V> map) {
+
+        if (null == builder) {
+
+            throw new IllegalArgumentException(getClass().getName() + "(Map,Builder) builder must not be null.");
+        }
 
         if (null == map) {
 
-            throw new IllegalArgumentException(getClass().getName() + "(Map,EntryBuilder) map must not be null.");
-        }
-
-        if (null == entryBuilder) {
-
-            throw new IllegalArgumentException(getClass().getName() + "(Map,EntryBuilder) entryBuilder must not be null.");
+            throw new IllegalArgumentException(getClass().getName() + "(Map,Builder) map must not be null.");
         }
 
         this.map = map;
 
-        for (Entry<K, V> entry = entryBuilder.buildEntry(); null != entry; entry = entryBuilder.buildEntry()) {
+        for (Entry<K, V> entry = builder.build(); null != entry; entry = builder.build()) {
 
             this.map.put(entry.getKey(), entry.getValue());
         }
     }
 
     /**
-     * Instantiate a new {@code BuilderMap} that will use the supplied {@link EntryBuilder} to build it's entries.
+     * Instantiate a new {@code BuilderMap} that will use the supplied {@link Builder} to build it's entries.
      *
      * @param entryBuilder the builder used to build the entries for the new map.
      */
-    public BuilderMap(EntryBuilder<K, V> entryBuilder) {
+    public BuilderMap(Builder<Entry<K, V>> entryBuilder) {
 
         this(entryBuilder, new HashMap<K, V>());
     }
