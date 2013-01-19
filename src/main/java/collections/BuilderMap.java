@@ -18,27 +18,28 @@ import java.util.Set;
  * <p/>
  * Example:
  * <code>
- * Map<Integer, String> map = new HashMap<>();
- * map.put(4, "four");
- * map.put(5, "five");
- * map.put(6, "six");
+ *      Map<Integer, String> map = new HashMap<>();
+ *      map.put(4, "four");
+ *      map.put(5, "five");
+ *      map.put(6, "six");
  * <p/>
- * final Iterator<String> numbers = Arrays.asList("one", "two", "three").iterator();
+ *      final Iterator<String> numbers = Arrays.asList("one", "two", "three").iterator();
  * <p/>
- * Map<Integer, String> builderMap = new BuilderMap<>(new EntryBuilder<Integer, String>() {
+ *      Map<Integer, String> builderMap = new BuilderMap<>(new EntryBuilder<Integer, String>() {
  * <p/>
- * private int i = 0;
+ *          private int i = 0;
+ *
+ *          public Entry<Integer, String> buildEntry() {
+ * <p/>
+ *          if (numbers.hasNext()) return new SimpleEntry<Integer, String>(++i, numbers.next());
+ * <p/>
+ *              return null;
+ *          }
+ *      }, map); // {1=one, 2=two, 3=three, 4=four, 5=five, 6=six}
+ * </code>
  *
  * @param <K> the generic type of the maps keys.
  * @param <V> the generic type of the maps values.
- * @Override public Entry<Integer, String> buildEntry() {
- * <p/>
- * if (numbers.hasNext()) return new SimpleEntry<Integer, String>(++i, numbers.next());
- * <p/>
- * return null;
- * }
- * }, map); // {1=one, 2=two, 3=three, 4=four, 5=five, 6=six}
- * </code>
  */
 public class BuilderMap<K, V> implements Map<K, V> {
 
