@@ -15,7 +15,8 @@ import java.util.Set;
  * values that will be held within the map. The {@link Builder#build()} method will be repeatedly called until it
  * returns {@code null}.
  * <p/>
- * The backing map is the actual collection that will hold the built keys and values.
+ * The backing map is the actual collection that will hold the built keys and values. If no backing map is supplied then
+ * a {@link HashMap} will be used.
  * <p/>
  * Example:
  * <code>
