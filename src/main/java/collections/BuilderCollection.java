@@ -14,6 +14,28 @@ import java.util.Iterator;
  * {@code null}.
  * <p/>
  * The backing collection is the actual collection that will hold the built items.
+ * <p/>
+ * Example:
+ * <code>
+ *      Collection<String> collection = new Vector<>();
+ *      collection.add("one");
+ *      collection.add("two");
+ *      collection.add("three");
+ * <p/>
+ *      final Iterator<String> numbers = Arrays.asList("four", "five", "six").iterator();
+ * <p/>
+ *      Collection<String> builderCollection = new BuilderCollection<>(new Builder<String>() {
+ * <p/>
+ *          private int i = 0;
+ * <p/>
+ *          public String build() {
+ * <p/>
+ *              if (numbers.hasNext()) return numbers.next();
+ * <p/>
+ *              return null;
+ *          }
+ *      }, collection); // [one, two, three, four, five, six]
+ * </code>
  *
  * @author Karl Bennett
  *
@@ -21,7 +43,7 @@ import java.util.Iterator;
  */
 public class BuilderCollection<T> implements Collection<T> {
 
-    private final Collection collection;
+    private final Collection<T> collection;
 
 
     /**
@@ -31,7 +53,7 @@ public class BuilderCollection<T> implements Collection<T> {
      * @param builder    the builder used to build the entries for the new map.
      * @param collection the collection that will be used to hold the built items.
      */
-    public BuilderCollection(Builder<T> builder, Collection collection) {
+    public BuilderCollection(Builder<T> builder, Collection<T> collection) {
 
         if (null == builder) {
 
@@ -101,9 +123,9 @@ public class BuilderCollection<T> implements Collection<T> {
      * {@inheritDoc}
      */
     @Override
-    public <T extends Object> T[] toArray(T[] array) {
+    public <T> T[] toArray(T[] array) {
 
-        return (T[]) collection.toArray(array);
+        return collection.toArray(array);
     }
 
     /**
