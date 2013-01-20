@@ -49,7 +49,7 @@ public class BuilderSet<E> extends BuilderCollection<E> implements Set<E> {
      * it's elements and the supplied backing {@link java.util.Set} to hold it's elements.
      *
      * @param builder    the builder used to build the entries for the new map.
-     * @param set the set that will be used to hold the built elements.
+     * @param set        the set that will be used to hold the built elements.
      */
     public BuilderSet(Builder<E> builder, Set<E> set) {
         super(builder, set);
