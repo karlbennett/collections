@@ -9,7 +9,7 @@ import java.util.Set;
  * This {@code BuilderMap} can be used to quickly construct a map from another collection or as a base class to simplify
  * building a map that self populate from a custom type.
  * <p/>
- * It is constructed with an {@link Builder} and an optional backing {@link Map}.
+ * It is constructed with a {@link Builder} and an optional backing {@link Map}.
  * <p/>
  * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build the map. The
  * {@link Builder#build()} method will be repeatedly called until it returns {@code null}.
