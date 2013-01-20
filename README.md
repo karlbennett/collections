@@ -65,3 +65,24 @@ This project contains utility classes that can help build and manipulate Java co
             return null;
         }
     }, set); // [five, four, one, six, three, two]
+
+### [`BuilderList`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/builders/BuilderList.java "BuilderList")
+
+    List<String> list = new ArrayList<>();
+    list.add("one");
+    list.add("two");
+    list.add("three");
+
+    final Iterator<String> numbers = Arrays.asList("four", "five", "six").iterator();
+
+    List<String> builderList = new BuilderList<>(new Builder<String>() {
+
+        private int i = 0;
+
+        public String build() {
+
+            if (numbers.hasNext()) return numbers.next();
+
+            return null;
+        }
+    }, list); // [one, two, three, four, five, six]
