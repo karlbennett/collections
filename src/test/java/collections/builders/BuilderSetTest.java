@@ -135,29 +135,4 @@ public class BuilderSetTest {
 
         new BuilderSet(null, null);
     }
-
-    @Test
-    public void testName() throws Exception {
-
-        Set<String> set = new TreeSet<>();
-        set.add("one");
-        set.add("two");
-        set.add("three");
-
-        final Iterator<String> numbers = Arrays.asList("four", "five", "six").iterator();
-
-        Set<String> builderSet = new BuilderSet<>(new Builder<String>() {
-
-            private int i = 0;
-
-            public String build() {
-
-                if (numbers.hasNext()) return numbers.next();
-
-                return null;
-            }
-        }, set); // [one, two, three, four, five, six]
-
-        System.out.println(builderSet);
-    }
 }
