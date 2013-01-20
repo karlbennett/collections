@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
  * This {@code BuilderCollection} can be used to quickly construct a collection from another collection or as a base
- * class to simplify building a collection that self populate from a custom type.
+ * class to simplify building a collection that self populates from a custom type.
  * <p/>
  * It is constructed with a {@link Builder} and a backing {@link Collection}.
  * <p/>

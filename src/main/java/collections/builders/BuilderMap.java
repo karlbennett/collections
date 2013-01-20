@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * This {@code BuilderMap} can be used to quickly construct a map from another collection or as a base class to simplify
- * building a map that self populate from a custom type.
+ * building a map that self populates from a custom type.
  * <p/>
  * It is constructed with a {@link Builder} and an optional backing {@link Map}.
  * <p/>
