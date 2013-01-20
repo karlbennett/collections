@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * * This {@code BuilderSet} can be used to quickly construct a set from another collection or as a base
+ * This {@code BuilderSet} can be used to quickly construct a set from another collection or as a base
  * class to simplify building a set that self populate from a custom type.
  * <p/>
  * It is constructed with a {@link Builder} and a backing {@link Set}.
