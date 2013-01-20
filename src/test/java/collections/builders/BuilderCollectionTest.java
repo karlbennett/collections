@@ -21,6 +21,7 @@ public class BuilderCollectionTest {
     private static final String THREE = "three";
 
     private static final Collection<String> COLLECTION;
+
     static {
 
         Collection<String> collection = new Vector<>();

@@ -2,13 +2,15 @@ package collections.builders;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
-import static java.util.Map.Entry;
 import static java.util.AbstractMap.SimpleEntry;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static java.util.Map.Entry;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verifyZeroInteractions;
 
 /**
  * @author Karl Bennett
@@ -20,6 +22,7 @@ public class BuilderMapTest {
     private static final String THREE = "three";
 
     private static final Map<Integer, String> MAP;
+
     static {
 
         Map<Integer, String> map = new HashMap<>();
