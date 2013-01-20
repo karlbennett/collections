@@ -77,11 +77,11 @@ public class BuilderMap<K, V> implements Map<K, V> {
     /**
      * Instantiate a new {@code BuilderMap} that will use the supplied {@link Builder} to build it's entries.
      *
-     * @param Builder the builder used to build the entries for the new map.
+     * @param builder the builder used to build the entries for the new map.
      */
-    public BuilderMap(Builder<Entry<K, V>> Builder) {
+    public BuilderMap(Builder<Entry<K, V>> builder) {
 
-        this(Builder, new HashMap<K, V>());
+        this(builder, new HashMap<K, V>());
     }
 
 
