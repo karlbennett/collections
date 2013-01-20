@@ -45,8 +45,8 @@ import java.util.Set;
 public class BuilderSet<E> extends BuilderCollection<E> implements Set<E> {
 
     /**
-     * Instantiate a new {@code BuilderSet} that will use the supplied {@link collections.builders.Builder} to build it's elements and
-     * the supplied backing {@link java.util.Set} to hold it's elements.
+     * Instantiate a new {@code BuilderSet} that will use the supplied {@link collections.builders.Builder} to build
+     * it's elements and the supplied backing {@link java.util.Set} to hold it's elements.
      *
      * @param builder    the builder used to build the entries for the new map.
      * @param set the set that will be used to hold the built elements.
