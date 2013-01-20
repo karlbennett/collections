@@ -50,7 +50,7 @@ public class BuilderCollection<E> implements Collection<E> {
      * Instantiate a new {@code BuilderCollection} that will use the supplied {@link Builder} to build it's elements and
      * the supplied backing {@link Collection} to hold it's elements.
      *
-     * @param builder    the builder used to build the entries for the new map.
+     * @param builder    the builder used to build the elements for the new collection.
      * @param collection the collection that will be used to hold the built elements.
      */
     public BuilderCollection(Builder<E> builder, Collection<E> collection) {
