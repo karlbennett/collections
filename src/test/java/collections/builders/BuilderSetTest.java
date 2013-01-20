@@ -21,12 +21,12 @@ public class BuilderSetTest {
 
     static {
 
-        Set<String> collection = new HashSet<>();
-        collection.add(ONE);
-        collection.add(TWO);
-        collection.add(THREE);
+        Set<String> set = new HashSet<>();
+        set.add(ONE);
+        set.add(TWO);
+        set.add(THREE);
 
-        SET = Collections.unmodifiableSet(collection);
+        SET = Collections.unmodifiableSet(set);
     }
 
     @Test
