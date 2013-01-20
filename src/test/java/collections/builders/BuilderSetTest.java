@@ -53,14 +53,14 @@ public class BuilderSetTest {
             }
         });
 
-        assertEquals("the collection should have been built correctly.", SET, builderSet);
+        assertEquals("the set should have been built correctly.", SET, builderSet);
     }
 
     @Test
     public void testEmptyBuilderMap() throws Exception {
 
         Set set = mock(Set.class);
-        Set builderCollection = new BuilderSet(new Builder() {
+        Set builderSet = new BuilderSet(new Builder() {
 
             @Override
             public Object build() {
@@ -71,7 +71,7 @@ public class BuilderSetTest {
 
         verifyZeroInteractions(set);
 
-        assertEquals("the builder set should be empty.", 0, builderCollection.size());
+        assertEquals("the builder set should be empty.", 0, builderSet.size());
     }
 
     @Test
