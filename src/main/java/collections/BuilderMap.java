@@ -26,11 +26,11 @@ import java.util.Set;
  * <p/>
  *      final Iterator<String> numbers = Arrays.asList("one", "two", "three").iterator();
  * <p/>
- *      Map<Integer, String> builderMap = new BuilderMap<>(new EntryBuilder<Integer, String>() {
+ *      Map<Integer, String> builderMap = new BuilderMap<>(new Builder<Entry<Integer, String>>() {
  * <p/>
  *          private int i = 0;
  *
- *          public Entry<Integer, String> buildEntry() {
+ *          public Entry<Integer, String> build() {
  * <p/>
  *              if (numbers.hasNext()) return new SimpleEntry<Integer, String>(++i, numbers.next());
  * <p/>
@@ -77,11 +77,11 @@ public class BuilderMap<K, V> implements Map<K, V> {
     /**
      * Instantiate a new {@code BuilderMap} that will use the supplied {@link Builder} to build it's entries.
      *
-     * @param entryBuilder the builder used to build the entries for the new map.
+     * @param Builder the builder used to build the entries for the new map.
      */
-    public BuilderMap(Builder<Entry<K, V>> entryBuilder) {
+    public BuilderMap(Builder<Entry<K, V>> Builder) {
 
-        this(entryBuilder, new HashMap<K, V>());
+        this(Builder, new HashMap<K, V>());
     }
 
 
