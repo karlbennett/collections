@@ -11,8 +11,9 @@ import java.util.Set;
  * <p/>
  * It is constructed with a {@link Builder} and an optional backing {@link Map}.
  * <p/>
- * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build the map. The
- * {@link Builder#build()} method will be repeatedly called until it returns {@code null}.
+ * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build the keys and
+ * values that will be held within the map. The {@link Builder#build()} method will be repeatedly called until it
+ * returns {@code null}.
  * <p/>
  * The backing map is the actual collection that will hold the built keys and values.
  * <p/>
