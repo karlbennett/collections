@@ -56,7 +56,8 @@ public class BuilderSet<E> extends BuilderCollection<E> implements Set<E> {
     }
 
     /**
-     * Instantiate a new {@code BuilderSet} that will use the supplied {@link Builder} to build it's elements.
+     * Instantiate a new {@code BuilderSet} that will use the supplied {@link Builder} to build it's elements. The
+     * backing set will be a {@link HashSet}.
      *
      * @param builder the builder used to build the elements for the new set.
      */
