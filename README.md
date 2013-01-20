@@ -44,3 +44,24 @@ This project contains utility classes that can help build and manipulate Java co
             return null;
         }
     }, collection); // [one, two, three, four, five, six]
+
+### [`BuilderSet`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/builders/BuilderSet.java "BuilderSet")
+
+    Set<String> set = new TreeSet<>();
+    set.add("one");
+    set.add("two");
+    set.add("three");
+
+    final Iterator<String> numbers = Arrays.asList("four", "five", "six").iterator();
+
+    Set<String> builderSet = new BuilderSet<>(new Builder<String>() {
+
+        private int i = 0;
+
+        public String build() {
+
+            if (numbers.hasNext()) return numbers.next();
+
+            return null;
+        }
+    }, set); // [five, four, one, six, three, two]
