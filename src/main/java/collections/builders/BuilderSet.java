@@ -9,11 +9,11 @@ import java.util.Set;
  * <p/>
  * It is constructed with a {@link Builder} and a backing {@link Set}.
  * <p/>
- * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build each item to
- * be contain within the set. The {@link Builder#build()} method will be repeatedly called until it returns
+ * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build each element
+ * to be contain within the set. The {@link Builder#build()} method will be repeatedly called until it returns
  * {@code null}.
  * <p/>
- * The backing set is the actual set that will hold the built items. If no backing set is supplied then a
+ * The backing set is the actual set that will hold the built elements. If no backing set is supplied then a
  * {@link HashSet} will be used.
  * <p/>
  * Example:
@@ -40,27 +40,27 @@ import java.util.Set;
  *
  * @author Karl Bennett
  *
- * @param <T> the generic type of the sets items.
+ * @param <E> the generic type of the sets elements.
  */
-public class BuilderSet<T> extends BuilderCollection<T> implements Set<T> {
+public class BuilderSet<E> extends BuilderCollection<E> implements Set<E> {
 
     /**
-     * Instantiate a new {@code BuilderSet} that will use the supplied {@link collections.builders.Builder} to build it's items and
-     * the supplied backing {@link java.util.Set} to hold it's items.
+     * Instantiate a new {@code BuilderSet} that will use the supplied {@link collections.builders.Builder} to build it's elements and
+     * the supplied backing {@link java.util.Set} to hold it's elements.
      *
      * @param builder    the builder used to build the entries for the new map.
-     * @param set the set that will be used to hold the built items.
+     * @param set the set that will be used to hold the built elements.
      */
-    public BuilderSet(Builder<T> builder, Set<T> set) {
+    public BuilderSet(Builder<E> builder, Set<E> set) {
         super(builder, set);
     }
 
     /**
-     * Instantiate a new {@code BuilderSet} that will use the supplied {@link Builder} to build it's items.
+     * Instantiate a new {@code BuilderSet} that will use the supplied {@link Builder} to build it's elements.
      *
      * @param builder the builder used to build the entries for the new map.
      */
-    public BuilderSet(Builder<T> builder) {
-        this(builder, new HashSet<T>());
+    public BuilderSet(Builder<E> builder) {
+        this(builder, new HashSet<E>());
     }
 }

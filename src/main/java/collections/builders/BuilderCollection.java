@@ -9,11 +9,11 @@ import java.util.Iterator;
  * <p/>
  * It is constructed with a {@link Builder} and a backing {@link Collection}.
  * <p/>
- * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build each item to
- * be contain within the collection. The {@link Builder#build()} method will be repeatedly called until it returns
+ * The {@link Builder#build()} method must be implemented to provide the logic that will be used to build each element
+ * to be contain within the collection. The {@link Builder#build()} method will be repeatedly called until it returns
  * {@code null}.
  * <p/>
- * The backing collection is the actual collection that will hold the built items.
+ * The backing collection is the actual collection that will hold the built elements.
  * <p/>
  * Example:
  * <code>
@@ -39,21 +39,21 @@ import java.util.Iterator;
  *
  * @author Karl Bennett
  *
- * @param <T> the generic type of the collections items.
+ * @param <E> the generic type of the collections elements.
  */
-public class BuilderCollection<T> implements Collection<T> {
+public class BuilderCollection<E> implements Collection<E> {
 
-    private final Collection<T> collection;
+    private final Collection<E> collection;
 
 
     /**
-     * Instantiate a new {@code BuilderCollection} that will use the supplied {@link Builder} to build it's items and
-     * the supplied backing {@link Collection} to hold it's items.
+     * Instantiate a new {@code BuilderCollection} that will use the supplied {@link Builder} to build it's elements and
+     * the supplied backing {@link Collection} to hold it's elements.
      *
      * @param builder    the builder used to build the entries for the new map.
-     * @param collection the collection that will be used to hold the built items.
+     * @param collection the collection that will be used to hold the built elements.
      */
-    public BuilderCollection(Builder<T> builder, Collection<T> collection) {
+    public BuilderCollection(Builder<E> builder, Collection<E> collection) {
 
         if (null == builder) {
 
@@ -67,9 +67,9 @@ public class BuilderCollection<T> implements Collection<T> {
 
         this.collection = collection;
 
-        for (T item = builder.build(); null != item; item = builder.build()) {
+        for (E element = builder.build(); null != element; element = builder.build()) {
 
-            this.collection.add(item);
+            this.collection.add(element);
         }
     }
 
@@ -96,16 +96,16 @@ public class BuilderCollection<T> implements Collection<T> {
      * {@inheritDoc}
      */
     @Override
-    public boolean contains(Object item) {
+    public boolean contains(Object element) {
 
-        return collection.contains(item);
+        return collection.contains(element);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<E> iterator() {
 
         return collection.iterator();
     }
@@ -132,54 +132,54 @@ public class BuilderCollection<T> implements Collection<T> {
      * {@inheritDoc}
      */
     @Override
-    public boolean add(T item) {
+    public boolean add(E element) {
 
-        return collection.add(item);
+        return collection.add(element);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean remove(Object item) {
+    public boolean remove(Object element) {
 
-        return collection.remove(item);
+        return collection.remove(element);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean containsAll(Collection<?> items) {
+    public boolean containsAll(Collection<?> elements) {
 
-        return collection.containsAll(items);
+        return collection.containsAll(elements);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean addAll(Collection<? extends T> items) {
+    public boolean addAll(Collection<? extends E> elements) {
 
-        return collection.addAll(items);
+        return collection.addAll(elements);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean removeAll(Collection<?> items) {
+    public boolean removeAll(Collection<?> elements) {
 
-        return collection.removeAll(items);
+        return collection.removeAll(elements);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean retainAll(Collection<?> items) {
+    public boolean retainAll(Collection<?> elements) {
 
-        return collection.retainAll(items);
+        return collection.retainAll(elements);
     }
 
     /**
