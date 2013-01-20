@@ -1,4 +1,4 @@
-package collections;
+package collections.builders;
 
 import org.junit.Test;
 
@@ -117,7 +117,7 @@ public class BuilderCollectionTest {
     @Test(expected = IllegalArgumentException.class)
     public void testBuilderMapWithNullBuilder() throws Exception {
 
-        new BuilderCollection<>(null, new Vector());
+        new BuilderCollection(null, new Vector());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -136,6 +136,6 @@ public class BuilderCollectionTest {
     @Test(expected = IllegalArgumentException.class)
     public void testBuilderMapWithNullBuilderAndMap() throws Exception {
 
-        new BuilderCollection<>(null, null);
+        new BuilderCollection(null, null);
     }
 }

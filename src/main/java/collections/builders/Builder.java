@@ -1,4 +1,4 @@
-package collections;
+package collections.builders;
 
 /**
  * Interface that provides a method for building values.

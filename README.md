@@ -3,7 +3,7 @@ Collections
 
 This project contains utility classes that can help build and manipulate Java collections.
 
-### [`BuilderMap`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/BuilderMap.java "BuilderMap")
+### [`BuilderMap`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/builders/BuilderMap.java "BuilderMap")
 
     Map<Integer, String> map = new HashMap<>();
     map.put(4, "four");
@@ -24,7 +24,7 @@ This project contains utility classes that can help build and manipulate Java co
         }
     }, map); // {1=one, 2=two, 3=three, 4=four, 5=five, 6=six}
 
-### [`BuilderCollection`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/BuilderCollection.java "BuilderCollection")
+### [`BuilderCollection`](https://github.com/karlbennett/collections/blob/master/src/main/java/collections/builders/BuilderCollection.java "BuilderCollection")
 
     Collection<String> collection = new Vector<>();
     collection.add("one");
